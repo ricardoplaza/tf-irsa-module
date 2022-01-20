@@ -10,9 +10,9 @@ variable "aws_region" {
 variable "assume_role" {
   type = map
   default = {
-    "dev"   = "arn:aws:iam::00000000:role/stylesage-admins"
-    "pre"   = "arn:aws:iam::00000000:role/stylesage-admins"
-    "pro"   = "arn:aws:iam::00000000:role/stylesage-admins" 
+    "dev"   = "arn:aws:iam::00000000:role/ricardoplaza-admins"
+    "pre"   = "arn:aws:iam::00000000:role/ricardoplaza-admins"
+    "pro"   = "arn:aws:iam::00000000:role/ricardoplaza-admins" 
   }
 }
 
@@ -28,17 +28,17 @@ variable "aws_account" {
 variable "oidc_serviceAccount" {
   type = map
   default = {
-    "dev"   = "stylesage_dev:irsaServiceAccount_dev"
-    "pre"   = "stylesage_pre:irsaServiceAccount_pre"
-    "pro"   = "stylesage_pro:irsaServiceAccount_pro"
+    "dev"   = "ricardoplaza_dev:irsaServiceAccount_dev"
+    "pre"   = "ricardoplaza_pre:irsaServiceAccount_pre"
+    "pro"   = "ricardoplaza_pro:irsaServiceAccount_pro"
   }
 }
 
 variable "s3_role_name" {
   type = map
   default = {
-    "dev"   = "stylesage_s3_role_dev"
-    "pre"   = "stylesage_s3_role_pre"
-    "pro"   = "stylesage_s3_role_pro"
+    "dev"   = "ricardoplaza_s3_role_dev"
+    "pre"   = "ricardoplaza_s3_role_pre"
+    "pro"   = "ricardoplaza_s3_role_pro"
   }
 }

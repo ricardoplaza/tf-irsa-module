@@ -1,10 +1,10 @@
 terraform {
   backend "s3" {
-    bucket               = "stylesage-infrastructure"
+    bucket               = "ricardoplaza-infrastructure"
     region               = "eu-west-1"
-    workspace_key_prefix = "stylesage-infrastructure/irsa"
+    workspace_key_prefix = "ricardoplaza-infrastructure/irsa"
     key                  = "terraform_state"
     encrypt              = "true"
-    dynamodb_table       = "stylesage_terraform_irsa_lock"
+    dynamodb_table       = "ricardoplaza_terraform_irsa_lock"
   }
 }
