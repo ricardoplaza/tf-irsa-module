@@ -30,7 +30,7 @@ EOF
 }
 
 resource "aws_iam_role" "stylesage_s3_role" {
-  name                  = "stylesage-s3-role"
+  name                  = "${var.s3_role_name[terraform.workspace]}"
   force_detach_policies = true
 
   assume_role_policy = <<POLICY
@@ -40,12 +40,12 @@ resource "aws_iam_role" "stylesage_s3_role" {
     {
       "Effect": "Allow",
       "Principal": {
-        "Federated": "arn:aws:iam::000000000:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/0000000000000000000"
+        "Federated": "arn:aws:iam:::oidc-provider/oidc.eks.${var.aws_region[terraform.workspace]}.amazonaws.com/id/${var.aws_account[terraform.workspace]}"
       },
       "Action": "sts:AssumeRoleWithWebIdentity",
       "Condition": {
         "StringEquals": {
-          "oidc.eks.eu-west-1.amazonaws.com/id/000000000000000000000000:sub": "system:serviceaccount:stylesage:microservice"
+          "oidc.eks.${var.aws_region[terraform.workspace]}.amazonaws.com/id/${var.aws_account[terraform.workspace]}:sub": "system:serviceaccount:${var.oidc_serviceAccount[terraform.workspace]}"
         }
       }
     }
